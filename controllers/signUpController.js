@@ -47,7 +47,7 @@ const signUpPost = [
       const values = [
         req.body.firstName,
         req.body.lastName,
-        req.body.userName,
+        req.body.username,
         hashedPassword,
         "false",
       ];

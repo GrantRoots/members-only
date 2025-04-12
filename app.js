@@ -55,7 +55,7 @@ app.use(passport.session());
 app.use(express.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => {
-  res.render("index");
+  res.render("index", { user: req.user });
 });
 app.use("/sign-up", signUpRouter);
 app.use("/log-in", logInRouter);
