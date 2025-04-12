@@ -26,9 +26,21 @@ async function getAllMessages() {
   return rows;
 }
 
+async function becomeAdmin(username) {
+  await pool.query("UPDATE users SET admin = 'true' WHERE username = $1;", [
+    username,
+  ]);
+}
+
+async function deleteMessage(message) {
+  await pool.query("DELETE * FROM messages WHERE message = $1", [message]);
+}
+
 module.exports = {
   signUp,
   becomeMember,
   addMessage,
   getAllMessages,
+  becomeAdmin,
+  deleteMessage,
 };

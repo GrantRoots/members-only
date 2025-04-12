@@ -9,8 +9,8 @@
     <h1>Home</h1>
     <% if (locals.user) { %>
     <h2>Welcome Back <%= user.username %></h2>
-    <a href="/log-out"><button>Log Out</button></a>
     <a href="/become-member"><button>Become A Member</button></a>
+    <a href="/become-admin"><button>Become An Admin</button></a>
     <a href="/new-message"><button>Create A Message</button></a>
     <% } else { %>
     <a href="/sign-up"><button>Sign Up</button></a>
@@ -21,6 +21,10 @@
     <div>Date: <%= message.date %></div>
     <% } %>
     <div><%= message.message %></div>
-    <% }) %>
+    <% if (locals.user && locals.user.admin === true) { %>
+    <form action="/" method="post" onsubmit="return confirm('Are you sure?')">
+      <button type="submit">Delete Message</button>
+    </form>
+    <% } %> <% }) %>
   </body>
 </html>

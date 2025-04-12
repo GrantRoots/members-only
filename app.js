@@ -11,6 +11,7 @@ const logInRouter = require("./routes/logInRouter");
 const becomeMemberRouter = require("./routes/becomeMemberRouter");
 const indexRouter = require("./routes/indexRouter");
 const newMessageRouter = require("./routes/newMessageRouter");
+const becomeAdminRouter = require("./routes/becomeAdminRouter");
 
 passport.use(
   new LocalStrategy(async (username, password, done) => {
@@ -68,6 +69,7 @@ app.post(
 );
 app.use("/become-member", becomeMemberRouter);
 app.use("/new-message", newMessageRouter);
+app.use("/become-admin", becomeAdminRouter);
 
 app.use((err, req, res, next) => {
   console.error(err);

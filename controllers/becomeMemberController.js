@@ -5,14 +5,16 @@ function showForm(req, res) {
 }
 
 async function becomeMember(req, res, next) {
-  try {
-    if (req.body.memberPassword === "password") {
+  if (req.body.memberPassword === "password") {
+    try {
       await db.becomeMember(req.user.username);
       res.redirect("/");
+    } catch (error) {
+      console.error(error);
+      next(error);
     }
-  } catch (error) {
-    console.error(error);
-    next(error);
+  } else {
+    res.render("becomeMember");
   }
 }
 
