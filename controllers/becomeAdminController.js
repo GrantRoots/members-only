@@ -7,9 +7,7 @@ function showForm(req, res) {
 async function becomeAdmin(req, res, next) {
   if (req.body.adminPassword === "admin") {
     try {
-      console.log(req.user);
       await db.becomeAdmin(req.user.username);
-      console.log(req.user);
       res.redirect("/");
     } catch (error) {
       console.error(error);
