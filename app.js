@@ -9,6 +9,8 @@ const bcrypt = require("bcryptjs");
 const signUpRouter = require("./routes/signUpRouter");
 const logInRouter = require("./routes/logInRouter");
 const becomeMemberRouter = require("./routes/becomeMemberRouter");
+const indexRouter = require("./routes/indexRouter");
+const newMessageRouter = require("./routes/newMessageRouter");
 
 passport.use(
   new LocalStrategy(async (username, password, done) => {
@@ -54,9 +56,7 @@ app.use(session({ secret: "cats", resave: false, saveUninitialized: false }));
 app.use(passport.session());
 app.use(express.urlencoded({ extended: false }));
 
-app.get("/", (req, res) => {
-  res.render("index", { user: req.user });
-});
+app.use("/", indexRouter);
 app.use("/sign-up", signUpRouter);
 app.use("/log-in", logInRouter);
 app.post(
@@ -67,6 +67,7 @@ app.post(
   })
 );
 app.use("/become-member", becomeMemberRouter);
+app.use("/new-message", newMessageRouter);
 
 app.use((err, req, res, next) => {
   console.error(err);

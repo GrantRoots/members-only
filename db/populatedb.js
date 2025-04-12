@@ -10,11 +10,23 @@ CREATE TABLE IF NOT EXISTS users (
     last_name VARCHAR(255),
     username VARCHAR(255),
     password VARCHAR(255),
-    membership BOOLEAN
+    membership BOOLEAN,
+    admin BOOLEAN
 );
 
-INSERT INTO users (first_name, last_name, username, password, membership) 
-VALUES ('Firstname', 'Lastname', 'Testuser', 123, 'false');
+CREATE TABLE IF NOT EXISTS messages (
+    id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    message TEXT,
+    date TEXT,
+    first_name VARCHAR(255),
+    last_name VARCHAR(255)
+);
+
+INSERT INTO users (first_name, last_name, username, password, membership, admin) 
+VALUES ('Firstname', 'Lastname', 'Testuser', '123', 'false', 'false');
+
+INSERT INTO messages (message, date, first_name, last_name) 
+VALUES ('Hello this is a test message', '4/11/2025', 'FirstName', 'LastName');
 `;
 
 const ROLE_NAME = process.env.ROLE_NAME;

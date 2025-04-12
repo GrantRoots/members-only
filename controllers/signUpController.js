@@ -50,6 +50,7 @@ const signUpPost = [
         req.body.username,
         hashedPassword,
         "false",
+        "false",
       ];
       await db.signUp(values);
       res.redirect("/");

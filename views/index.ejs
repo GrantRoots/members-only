@@ -11,9 +11,16 @@
     <h2>Welcome Back <%= user.username %></h2>
     <a href="/log-out"><button>Log Out</button></a>
     <a href="/become-member"><button>Become A Member</button></a>
+    <a href="/new-message"><button>Create A Message</button></a>
     <% } else { %>
     <a href="/sign-up"><button>Sign Up</button></a>
     <a href="/log-in"><button>Login</button></a>
+    <% } %> <% messages.forEach((message) => { %> <% if (locals.user &&
+    locals.user.membership === true) { %>
+    <div>Author: <%= message.first_name + ' ' + message.last_name %></div>
+    <div>Date: <%= message.date %></div>
     <% } %>
+    <div><%= message.message %></div>
+    <% }) %>
   </body>
 </html>
