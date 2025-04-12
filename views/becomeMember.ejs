@@ -7,10 +7,11 @@
   </head>
   <body>
     <h1>Please enter the secret password to become a member</h1>
-    <form action="/become-member">
+    <form action="/become-member" method="post">
       <label for="memberPassword">
         Password:
-        <input type="text" />
+        <input type="text" name="memberPassword" />
+        <button type="submit">Become A Member</button>
       </label>
     </form>
   </body>

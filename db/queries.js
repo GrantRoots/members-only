@@ -8,8 +8,10 @@ async function signUp(values) {
 }
 
 async function becomeMember(user) {
-  await pool.query("UPDATE users SET membership = 'true' WHERE username = $1;"),
-    [user];
+  await pool.query(
+    "UPDATE users SET membership = 'true' WHERE username = $1;",
+    [user]
+  );
 }
 
 module.exports = {
