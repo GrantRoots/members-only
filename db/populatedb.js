@@ -10,12 +10,11 @@ CREATE TABLE IF NOT EXISTS users (
     last_name VARCHAR(255),
     username VARCHAR(255),
     password VARCHAR(255),
-    membership TEXT,
+    membership BOOLEAN
 );
 
-INSERT INTO users(first_name, last_name, username, password, membership) VALUES(
-    Firstname, Lastname, Testuser, 123, member
-);
+INSERT INTO users (first_name, last_name, username, password, membership) 
+VALUES ('Firstname', 'Lastname', 'Testuser', 123, 'false');
 `;
 
 const ROLE_NAME = process.env.ROLE_NAME;

@@ -1,5 +1,4 @@
-const epxress = require("express");
-const newMessageRouter = epxress.Router();
+const newMessageRouter = require("express").Router();
 const newMessageController = require("../controllers/newMessageController");
 
 newMessageRouter.get("/", newMessageController);

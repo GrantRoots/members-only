@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Home</h1>
+    <% if (locals.user) { %>
+    <h2>Welcome Back <%= user.username %></h2>
+    <a href="/log-out"><button>Log Out</button></a>
+    <a href="/become-member"><button>Become A Member</button></a>
+    <% } else { %>
+    <a href="/sign-up"><button>Sign Up</button></a>
+    <a href="/log-in"><button>Login</button></a>
+    <% } %>
+  </body>
+</html>
