@@ -12,7 +12,7 @@ async function getAllMessages(req, res, next) {
 
 async function deleteMessage(req, res, next) {
   try {
-    await db.deleteMessage(message);
+    await db.deleteMessage(req.body.message);
     res.redirect("/");
   } catch (error) {
     console.error(error);

@@ -33,7 +33,7 @@ async function becomeAdmin(username) {
 }
 
 async function deleteMessage(message) {
-  await pool.query("DELETE * FROM messages WHERE message = $1", [message]);
+  await pool.query("DELETE FROM messages WHERE message = $1", [message]);
 }
 
 module.exports = {

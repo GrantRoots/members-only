@@ -23,6 +23,7 @@
     <div><%= message.message %></div>
     <% if (locals.user && locals.user.admin === true) { %>
     <form action="/" method="post" onsubmit="return confirm('Are you sure?')">
+      <input type="hidden" name="message" value="<%= message.message %>" />
       <button type="submit">Delete Message</button>
     </form>
     <% } %> <% }) %>
